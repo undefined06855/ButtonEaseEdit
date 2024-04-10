@@ -4,6 +4,8 @@
 	"version": "v1.0.0",
 	"id": "undefined0.buttoneasing",
 	"name": "ButtonEaseEdit",
+	"repository": "https://github.com/undefined06855/ButtonEaseEdit",
+	"tags": [ "interface", "customization", "enhancement" ],
 	"developer": "undefined0",
 	"description": "Buttons moving too boring? Customise the easing how you want!",
 	"settings": {
