@@ -39,7 +39,7 @@ protected:
         // loop needs to be reversed
         for (int i = 0; i < easingList.size(); i++) {
             // the following magic numbers have all been picked at random
-            CCLabelBMFont* indexLabel = CCLabelBMFont::create(std::to_string(i + 1).c_str(), "bigFont.fnt", 350.f, CCTextAlignment::kCCTextAlignmentRight);
+            CCLabelBMFont* indexLabel = CCLabelBMFont::create(std::to_string(i).c_str(), "bigFont.fnt", 350.f, CCTextAlignment::kCCTextAlignmentRight);
             indexLabel->setPosition(CCPoint{ win.width / 2, 250.f - (float)i * 12 });
             indexLabel->setScale(0.4f);
             indexLabel->setContentSize(CCSize{ 500.f, 32.5f });
