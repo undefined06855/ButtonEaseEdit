@@ -11,14 +11,15 @@
 	"settings": {
 		"test-button": { "type": "custom" },
 		"chosen-easing": {
-			"name": "Chosen Easing",
+			"name": "Easing ID",
 			"type": "int",
 			"min": 0,
 			"max": 17,
 			"default": 8
 		},
+		"easing-list": { "type": "custom" },
 		"easing-rate": {
-			"name": "Easing Rate (when applicable)",
+			"name": "Easing Rate (if applicable)",
 			"type": "float",
 			"min": 0,
 			"max": 4,

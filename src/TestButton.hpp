@@ -20,7 +20,7 @@ protected:
     bool init(TestButtonSetting* value, float width) {
         if (!SettingNode::init(value)) return false;
 
-        this->setContentSize({ width, 130.f });
+        this->setContentSize({ width, 150.f });
 
         CCMenu* menu = CCMenu::create();
         menu->setPosition(CCPoint{ 0, 0 });
@@ -29,16 +29,21 @@ protected:
         CCMenuItemSpriteExtra* button = CCMenuItemSpriteExtra::create(
             sprite, this, menu_selector(TestButtonNode::onTestButtonPressed)
         );
-        button->setPosition(CCPoint{ width / 2, 130.f / 2 });
+        button->setPosition(CCPoint{ width / 2, 65.f});
         menu->addChild(button);
+
+        CCLabelBMFont* label = CCLabelBMFont::create("Test Button", "bigFont.fnt");
+        label->setPosition(CCPoint{ width / 2, 130.f });
+        label->setZOrder(-1); // below the test button
+        label->setScale(0.625f);
+        menu->addChild(label);
+
         this->addChild(menu);
 
         return true;
     }
 
-    void onTestButtonPressed(CCObject* sender) {
-
-    }
+    void onTestButtonPressed(CCObject* sender) {}
 
 public:
     void commit() override { this->dispatchCommitted(); }

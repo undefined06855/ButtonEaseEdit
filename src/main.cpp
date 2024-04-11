@@ -1,10 +1,13 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/CCMenuItemSpriteExtra.hpp>
 #include "TestButton.hpp"
+#include "EasingTypeList.hpp"
 using namespace geode::prelude;
 
 // needs to be defined somewhere after TestButtonSetting
 SettingNode* TestButtonSetting::createNode(float width) { return TestButtonNode::create(this, width); }
+// same as above
+SettingNode* EasingListSetting::createNode(float width) { return EasingListNode::create(this, width); }
 
 // set if a button is being selected or unselected
 bool isSelectingOrUnselecting = false;
@@ -33,9 +36,9 @@ Easings (taken from geode enums, subtract one):
 
 CCActionEase* CCEaseBounceOut_create(CCActionInterval* pAction) {
 	// default behaviour (a button isn't being pressed)
+	log::info("Trying to get a CCEaseBounceOut");
 	if (!isSelectingOrUnselecting) return CCEaseBounceOut::create(pAction);
-
-
+	
 	int64_t chosenEasing = Mod::get()->getSettingValue<int64_t>("chosen-easing");
 	double easingRate = Mod::get()->getSettingValue<double>("easing-rate");
 	double easingLength = Mod::get()->getSettingValue<double>("easing-length");
@@ -44,6 +47,8 @@ CCActionEase* CCEaseBounceOut_create(CCActionInterval* pAction) {
 	pAction->setDuration(easingLength);
 	pAction->setAmplitudeRate(easingAmplitude);
 	pAction->setSpeedMod(easingSpeedMod);
+
+	log::info("switching to easing {}", chosenEasing);
 
 	switch (chosenEasing) {
 		case 0 : return CCEaseInOut::create(pAction, easingRate);
@@ -105,4 +110,5 @@ $execute {
 
 $on_mod(Loaded) {
 	Mod::get()->addCustomSetting<TestButtonSetting>("test-button", "");
+	Mod::get()->addCustomSetting<EasingListSetting>("easing-list", "");
 }
