@@ -101,17 +101,15 @@ class $modify(CCMenuItemSpriteExtra) {
 	}
 };
 
-#ifdef GEODE_IS_ANDROID
-class $modify(CCEaseBounceOut) {
-	CCEaseBounceOut* create(cocos2d::CCActionInterval* pAction) {
-		// this works i promise
-		return (CCEaseBounceOut*)CCEaseBounceOut_create(pAction);
-	}
-};
-#endif
-
 $execute {
-#ifndef GEODE_IS_ANDROID
+#ifdef GEODE_IS_ANDROID
+	Mod::get()->hook(
+		reinterpret_cast<void*>(geode::addresser::getNonVirtual(&CCEaseBounceOut::create)),
+		&CCEaseBounceOut_create,
+		"CCEaseBounceOut::create",
+		tulip::hook::TulipConvention::Cdecl
+	);
+#else
 	Mod::get()->hook(
 		reinterpret_cast<void*>(geode::base::getCocos() + 0x81770),
 		&CCEaseBounceOut_create,

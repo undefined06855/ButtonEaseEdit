@@ -37,17 +37,24 @@ protected:
         for (int i = 0; i < easingList.size(); i++) {
             // the following magic numbers have all been picked at random
             CCLabelBMFont* indexLabel = CCLabelBMFont::create(std::to_string(i).c_str(), "bigFont.fnt");
-            indexLabel->setPosition(CCPoint{ win.width / 2 - 5.f - 95.f, 250.f - (float)i * 12 });
+            indexLabel->setPosition(CCPoint{ win.width / 2 - 5.f - 90.f, 250.f - (float)i * 12 });
             indexLabel->setScale(0.4f);
             indexLabel->setAnchorPoint(CCPoint{ 1.f, 0.5f });
             layer->addChild(indexLabel);
 
             CCLabelBMFont* easingLabel = CCLabelBMFont::create(easingList[i].c_str(), "bigFont.fnt", 350.f);
-            easingLabel->setPosition(CCPoint{ win.width / 2 + 5.f - 95.f, 250.f - (float)i * 12 });
+            easingLabel->setPosition(CCPoint{ win.width / 2 + 5.f - 90.f, 250.f - (float)i * 12 });
             easingLabel->setScale(0.4f);
             easingLabel->setAnchorPoint(CCPoint{ 0.f, 0.5f });
             layer->addChild(easingLabel);
         }
+
+        CCSprite* spacer = CCSprite::createWithSpriteFrameName("floorLine_001.png");
+        spacer->setScaleX(0.480f);
+        spacer->setScaleY(0.75f);
+        spacer->setPosition(CCPoint{ 195.f, 147.f });
+        spacer->setRotation(90.f);
+        layer->addChild(spacer);
 
         this->addChild(layer);
 
