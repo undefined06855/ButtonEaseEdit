@@ -51,7 +51,8 @@
 			"min": 0,
 			"max": 4,
 			"default": 1,
-			"control": { "arrows": false }
+			"control": { "arrows": false },
+			"platforms": [ "windows" ]
 		}
 	}
 }

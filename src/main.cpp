@@ -43,10 +43,13 @@ CCActionEase* CCEaseBounceOut_create(CCActionInterval* pAction) {
 	double easingRate = Mod::get()->getSettingValue<double>("easing-rate");
 	double easingLength = Mod::get()->getSettingValue<double>("easing-length");
 	double easingAmplitude = Mod::get()->getSettingValue<double>("easing-amplitude");
+#ifndef GEODE_IS_ANDROID
+	// this just doesnt exist on android?? like what? why???
 	double easingSpeedMod = Mod::get()->getSettingValue<double>("easing-speedMod");
+	pAction->setSpeedMod(easingSpeedMod);
+#endif
 	pAction->setDuration(easingLength);
 	pAction->setAmplitudeRate(easingAmplitude);
-	pAction->setSpeedMod(easingSpeedMod);
 
 	log::info("switching to easing {}", chosenEasing);
 
