@@ -102,14 +102,14 @@ class $modify(CCMenuItemSpriteExtra) {
 $execute {
 #ifdef GEODE_IS_ANDROID
 		Mod::get()->hook(
-		reinterpret_cast<void*>(base::getCocos() + 0xb73188),
+		reinterpret_cast<void*>(geode::base::get() + 0xb73188),
 		&CCEaseBounceOut_create, // detour
 		"CCEaseBounceOut::create", // display name, shows up on the console
 		tulip::hook::TulipConvention::Cdecl // calling convention
 	);
 #else
 	Mod::get()->hook(
-		reinterpret_cast<void*>(base::getCocos() + 0x81770), // address
+		reinterpret_cast<void*>(geode::base::getCocos() + 0x81770), // address
 		&CCEaseBounceOut_create, // detour
 		"CCEaseBounceOut::create", // display name, shows up on the console
 		tulip::hook::TulipConvention::Cdecl // calling convention

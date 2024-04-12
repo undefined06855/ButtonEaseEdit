@@ -57,7 +57,7 @@ protected:
 public:
     static EasingListPopup* create() {
         auto ret = new EasingListPopup();
-        if (ret && ret->init(240.f, 265.f)) {
+        if (ret && ret->initAnchored(240.f, 265.f)) {
             ret->autorelease();
             return ret;
         }
