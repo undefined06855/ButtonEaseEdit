@@ -34,6 +34,7 @@ Easings (taken from geode enums, subtract one):
 	BackOut = 17,
 */
 
+// TRUST ME I TRIED $MODIFY IT JUST DID NOT WANT TO WORK :sob:
 CCActionEase* CCEaseBounceOut_create(CCActionInterval* pAction) {
 	// default behaviour (a button isn't being pressed)
 	log::info("Trying to get a CCEaseBounceOut");
@@ -102,21 +103,12 @@ class $modify(CCMenuItemSpriteExtra) {
 };
 
 $execute {
-#ifdef GEODE_IS_ANDROID
 	Mod::get()->hook(
 		reinterpret_cast<void*>(geode::addresser::getNonVirtual(&CCEaseBounceOut::create)),
 		&CCEaseBounceOut_create,
 		"CCEaseBounceOut::create",
 		tulip::hook::TulipConvention::Cdecl
 	);
-#else
-	Mod::get()->hook(
-		reinterpret_cast<void*>(geode::base::getCocos() + 0x81770),
-		&CCEaseBounceOut_create,
-		"CCEaseBounceOut::create",
-		tulip::hook::TulipConvention::Cdecl
-	);
-#endif
 }
 
 $on_mod(Loaded) {

@@ -1,4 +1,6 @@
 # ButtonEaseEdit Changelog
+## v1.0.4
+- Geode 3.1.0 build
 ## v1.0.3
 - Android support!
 ## v1.0.2
