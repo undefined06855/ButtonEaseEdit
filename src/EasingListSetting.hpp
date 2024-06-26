@@ -21,7 +21,7 @@ protected:
     bool init(EasingListSetting* value, float width) {
         if (!SettingNode::init(value)) return false;
 
-        this->setContentSize({ width, 35.f });
+        setContentSize({ width, 35.f });
 
         CCMenu* menu = CCMenu::create();
         menu->setPosition(CCPoint{ 0, 0 });
@@ -32,7 +32,7 @@ protected:
         button->setPosition(CCPoint{ width / 2, 20.f });
         menu->addChild(button);
 
-        this->addChild(menu);
+        addChild(menu);
 
         return true;
     }
@@ -40,7 +40,7 @@ protected:
     void showList(CCObject* sender) { EasingListPopup::create()->show(); }
 
 public:
-    void commit() override { this->dispatchCommitted(); }
+    void commit() override { dispatchCommitted(); }
 
     bool hasUncommittedChanges() override { return false; }
     bool hasNonDefaultValue() override { return false; }

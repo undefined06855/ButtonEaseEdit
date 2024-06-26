@@ -1,4 +1,7 @@
 # ButtonEaseEdit Changelog
+## v1.0.5
+- Geode 3.1.1 build
+- Made things in the easing list popup actually animate with the popup
 ## v1.0.4
 - Geode 3.1.0 build
 ## v1.0.3

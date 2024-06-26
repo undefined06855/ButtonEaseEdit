@@ -1,7 +1,9 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/CCMenuItemSpriteExtra.hpp>
-#include "TestButton.hpp"
-#include "EasingTypeList.hpp"
+#include <Geode/modify/CCScheduler.hpp>
+#include "TestButtonSetting.hpp"
+#include "EasingListSetting.hpp"
+#include <regex>
 using namespace geode::prelude;
 
 // needs to be defined somewhere after TestButtonSetting
